@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="8726" started-at="2021-05-16T10:30:59 EDT" finished-at="2021-05-16T10:31:08 EDT">
+    <groups>
+    </groups>
+    <test name="Surefire test" duration-ms="8726" started-at="2021-05-16T10:30:59 EDT" finished-at="2021-05-16T10:31:08 EDT">
+      <class name="TestPage.aboutUsTests">
+        <test-method status="PASS" signature="getUrl()[pri:0, instance:TestPage.aboutUsTests@4f7d0008]" name="getUrl" duration-ms="8648" started-at="2021-05-16T10:31:00 EDT" finished-at="2021-05-16T10:31:08 EDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUrl -->
+      </class> <!-- TestPage.aboutUsTests -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
