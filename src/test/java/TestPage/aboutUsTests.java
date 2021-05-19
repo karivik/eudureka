@@ -18,7 +18,7 @@ public class aboutUsTests {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://34.229.166.157:5775/");
+		driver.get("http://54.82.172.15:5775/");
 		driver.findElement(By.xpath("//a[@id='About Us']")).click();
 		String aboutUsPageContent = driver.getPageSource();
 		System.out.println("aboutUsPageContent :" + aboutUsPageContent);
