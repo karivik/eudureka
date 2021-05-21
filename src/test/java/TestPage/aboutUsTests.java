@@ -19,10 +19,12 @@ public class aboutUsTests {
 		WebDriverManager.chromedriver().setup();
 		
 		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--headless","--diable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
+		options.addArguments("--headless","--diable-gpu", "--window-size=1920,1200","--ignore-certificate-errors", "--disable-dev-shm-usage", "--no-sandbox");
 		driver = new ChromeDriver(options);
+		
 		driver.manage().window().maximize();
 		driver.get("http://54.236.29.87:5775/");
+		
 		driver.findElement(By.xpath("//a[@id='About Us']")).click();
 		String aboutUsPageContent = driver.getPageSource();
 		System.out.println("aboutUsPageContent :" + aboutUsPageContent);
