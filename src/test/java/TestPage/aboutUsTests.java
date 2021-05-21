@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -16,9 +17,12 @@ public class aboutUsTests {
 	public void getUrl() {
 		
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("--headless","--diable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
+		driver = new ChromeDriver(options);
 		driver.manage().window().maximize();
-		driver.get("http://54.82.172.15:5775/");
+		driver.get("http://54.236.29.87:5775/");
 		driver.findElement(By.xpath("//a[@id='About Us']")).click();
 		String aboutUsPageContent = driver.getPageSource();
 		System.out.println("aboutUsPageContent :" + aboutUsPageContent);

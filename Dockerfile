@@ -1,18 +1,39 @@
-FROM devopsedu/webapp
 
-MAINTAINER "Devops Dev"
+ version: "3"
+services:
+  selenium-hub:
+    image: selenium/hub:3.141.59-20210128
+    container_name: selenium-hub
+    ports:
+      - "4444:4444"
 
-RUN apt-get update
+  chrome:
+    image: selenium/node-chrome:3.141.59-20210128
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
 
-#Install git
-RUN apt-get install -y git
+  firefox:
+    image: selenium/node-firefox:3.141.59-20210128
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
 
-WORKDIR /var/www/html
-#Run cd /var/www/html
-
-RUN rm /var/www/html/index.html
-RUN rm /var/www/html/index.php
-
-Run git clone https://github.com/karivik/Phpdemo.git .
-
-CMD apachectl -D FOREGROUND
+  opera:
+    image: selenium/node-opera:3.141.59-20210128
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      
